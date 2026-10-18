@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ============================================================
+       COMO EDITAR ESTA PÁGINA
+       - Cada prato é um bloco <li class="prato">. Copiar um bloco para acrescentar, apagar para remover.
+       - Prato com três tamanhos: três <span class="preco">. Prato com um só tamanho: só um <span class="preco">.
+       - A data da lista está no <p class="menu__data"> (por baixo do título).
+       ============================================================ -->
+  <title>Menu | Arabesco, restaurante em São Domingos de Benfica, Lisboa</title>
+  <meta name="description" content="Menu e preços dos pratos do dia do Arabesco, restaurante na Estrada de Benfica, em Lisboa: peixe e carnes, em mini dose, meia dose e dose.">
+  <meta name="theme-color" content="#33200D">
+  <link rel="icon" href="assets/logo-fundo-claro.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__linha">
+      <a class="cabecalho__nome" href="index.html" aria-label="Arabesco, início">Arabesco</a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html#montra">A montra</a>
+        <a href="index.html#casa">A casa</a>
+        <a href="index.html#opinioes">Opiniões</a>
+        <a href="index.html#chegar">Como chegar</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+      </nav>
+      <a class="btn btn--pequeno" href="tel:+351217783344">Ligar</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="secao menu__pagina" aria-labelledby="menu-titulo">
+      <div class="container">
+        <div class="menu__cabeca">
+          <p class="rotulo">Pratos do dia</p>
+          <h1 id="menu-titulo">Menu</h1>
+          <p class="menu__data">Lista de 18/10/2026. Os pratos mudam todos os dias e os preços podem mudar. Para confirmar o que há hoje, ligue 217 783 344.</p>
+          <p class="menu__legenda">Mini, meia dose ou dose, conforme o prato.</p>
+        </div>
+
+        <div class="menu__grelha">
+          <!-- ===================== SOPA ===================== -->
+          <section class="menu__bloco" aria-labelledby="menu-sopa">
+            <h2 id="menu-sopa">Sopa</h2>
+            <ul class="pratos">
+              <li class="prato">
+                <p class="prato__nome">Sopa</p>
+                <p class="prato__precos"><span class="preco"><b>2,00€</b></span></p>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ===================== PEIXE ===================== -->
+          <section class="menu__bloco" aria-labelledby="menu-peixe">
+            <h2 id="menu-peixe">Peixe</h2>
+            <ul class="pratos">
+              <li class="prato">
+                <p class="prato__nome">Bacalhau à Gomes de Sá</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>10,50€</b></span> <span class="preco"><i>½ dose</i> <b>13,50€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Petinga frita com açorda</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>9,90€</b></span> <span class="preco"><i>½ dose</i> <b>11,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Peixe assado no forno com batatinhas</p>
+                <p class="prato__precos"><span class="preco"><i>½ dose</i> <b>12,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Caras de bacalhau cozidas com todos</p>
+                <p class="prato__precos"><span class="preco"><i>½ dose</i> <b>11,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Dourada na grelha com legumes</p>
+                <p class="prato__precos"><span class="preco"><i>½ dose</i> <b>12,90€</b></span></p>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ===================== CARNES ===================== -->
+          <section class="menu__bloco" aria-labelledby="menu-carnes">
+            <h2 id="menu-carnes">Carnes</h2>
+            <ul class="pratos">
+              <li class="prato">
+                <p class="prato__nome">Vitela à Lafões</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>10,50€</b></span> <span class="preco"><i>½ dose</i> <b>13,50€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Carne de porco à portuguesa</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>9,90€</b></span> <span class="preco"><i>½ dose</i> <b>11,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Panadinhos de peru com batata frita e maionese</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>10,00€</b></span> <span class="preco"><i>½ dose</i> <b>12,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Salada de frango com maionese</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>9,90€</b></span> <span class="preco"><i>½ dose</i> <b>11,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Coelho frito com cogumelos</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>9,90€</b></span> <span class="preco"><i>½ dose</i> <b>11,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Grelhada mista com batata e esparregado</p>
+                <p class="prato__precos"><span class="preco"><i>Mini</i> <b>10,00€</b></span> <span class="preco"><i>½ dose</i> <b>12,90€</b></span> <span class="preco"><i>Dose</i> <b>16,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Costeleta de novilho grelhada</p>
+                <p class="prato__precos"><span class="preco"><i>½ dose</i> <b>14,90€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Leitão à Bairrada</p>
+                <p class="prato__precos"><span class="preco"><i>½ dose</i> <b>15,00€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Alheira de Mirandela com ovo</p>
+                <p class="prato__precos"><span class="preco"><i>Dose</i> <b>11,00€</b></span></p>
+              </li>
+              <li class="prato">
+                <p class="prato__nome">Alheira de caça</p>
+                <p class="prato__precos"><span class="preco"><i>Dose</i> <b>11,50€</b></span></p>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <p class="menu__rodape"><a class="btn btn--escuro" href="tel:+351217783344">Ligar 217 783 344</a> <a class="ligacao-seta" href="index.html">Voltar ao site</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p class="container rodape__copy">© 2026 Arabesco. <a href="index.html">Voltar ao site</a> · <a href="termos.html">Termos e condições</a> · <a href="privacidade.html">Política de privacidade</a></p>
+  </footer>
+
+  <a class="ligar-flutuante" href="tel:+351217783344" aria-label="Ligar para o Arabesco">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </svg>
+    <span>Ligar</span>
+  </a>
+</body>
+</html>
