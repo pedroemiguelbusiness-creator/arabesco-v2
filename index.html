@@ -8,7 +8,10 @@
        COMO EDITAR ESTE FICHEIRO
        - Cada secção tem um comentário "EDITAR" a dizer o que se pode mudar.
        - Textos, horário, morada e contactos estão em texto simples, dentro das etiquetas.
+       - A ementa e os preços NÃO estão aqui: estão em ementa-dados.js.
        - O que ainda falta confirmar está em PENDENTES.md (na raiz da pasta).
+       - Se o horário mudar, mudar em: a faixa por baixo do hero, "Como chegar", o JSON-LD aqui em baixo
+         e as duas descrições (meta description e og:description).
        ============================================================ -->
 
   <title>Arabesco | Padaria, pastelaria e restaurante em São Domingos de Benfica, Lisboa</title>
@@ -21,6 +24,7 @@
   <meta property="og:locale" content="pt_PT">
 
   <link rel="icon" href="assets/logo-fundo-claro.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/logo-fundo-escuro.svg" as="image" type="image/svg+xml">
 
   <!-- Tipografia (Google Fonts), Instrument Serif (títulos) e Hanken Grotesk (texto).
        Se mudares aqui, muda também --f-titulos e --f-texto no style.css. -->
@@ -30,14 +34,15 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Dados estruturados (Schema.org). EDITAR: acrescentar "image" e "url" quando o site estiver publicado,
-       e "foundingDate" se o cliente confirmar o ano de fundação. -->
+  <!-- Dados estruturados (Schema.org). EDITAR: acrescentar "image" e "url" quando o site estiver publicado
+       (têm de ser endereços completos, com https://), e "foundingDate" se o cliente confirmar o ano de fundação. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["Bakery", "Restaurant"],
     "name": "Arabesco",
     "description": "Padaria, pastelaria e restaurante em São Domingos de Benfica, Lisboa",
+    "servesCuisine": "Portuguesa",
     "telephone": "+351217783344",
     "email": "aarabesco81@gmail.com",
     "address": {
@@ -65,33 +70,41 @@
 <body id="topo">
   <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 
-  <!-- ===================== CABEÇALHO ===================== -->
+  <!-- ===================== CABEÇALHO =====================
+       Em telemóvel mostra o nome e o botão de navegação (o "Ligar" está na barra fixa no fundo do ecrã).
+       Em computador mostra a navegação e o botão "Ligar". -->
   <header class="cabecalho">
     <div class="container cabecalho__linha">
       <a class="cabecalho__nome" href="#topo" aria-label="Arabesco, início">Arabesco</a>
-      <nav class="menu" aria-label="Principal">
+      <nav class="nav" id="nav" aria-label="Principal">
         <a href="#montra">A montra</a>
         <a href="#casa">A casa</a>
         <a href="#opinioes">Opiniões</a>
         <a href="#chegar">Como chegar</a>
-        <a href="menu.html">Menu</a>
+        <a href="menu.html">Ementa</a>
         <a href="#contactos">Contactos</a>
       </nav>
-      <a class="btn btn--pequeno" href="tel:+351217783344">Ligar</a>
+      <div class="cabecalho__acoes">
+        <a class="btn btn--pequeno cabecalho__ligar" href="tel:+351217783344">Ligar</a>
+        <button class="nav-botao" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir navegação">
+          <span class="nav-botao__barras" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="conteudo">
 
     <!-- ===================== 1. HERO =====================
-         O logótipo é o protagonista. A variante para fundo escuro está em assets/logo-fundo-escuro.svg. -->
+         O logótipo é o protagonista. A variante para fundo escuro está em assets/logo-fundo-escuro.svg.
+         O botão principal leva à ementa (o que o visitante procura); o telefone está na barra fixa e na faixa abaixo. -->
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="container">
-        <img class="hero__logo" src="assets/logo-fundo-escuro.svg" alt="Arabesco, casa fundada em 1968" width="1190" height="1483">
+        <img class="hero__logo" src="assets/logo-fundo-escuro.svg" alt="Arabesco, casa fundada em 1968" width="1190" height="1483" fetchpriority="high">
         <h1 id="hero-titulo">Padaria, pastelaria e almoços na Estrada de Benfica</h1>
         <p class="hero__sub">Aberta todos os dias, das&nbsp;7h às&nbsp;20h</p>
         <div class="hero__acoes">
-          <a class="btn btn--ouro" href="tel:+351217783344">Ligar 217 783 344</a>
+          <a class="btn btn--ouro" href="menu.html">Ver a ementa e os preços</a>
           <a class="btn btn--contorno-claro" href="#chegar">Como chegar</a>
         </div>
       </div>
@@ -116,44 +129,49 @@
       </div>
     </section>
 
-    <!-- ===================== 3. A MONTRA ===================== -->
+    <!-- ===================== 3. A MONTRA =====================
+         Em telemóvel: introdução, fotos, lista. Em computador: introdução e fotos lado a lado, lista por baixo. -->
     <section class="secao" id="montra" aria-labelledby="montra-titulo">
-      <div class="container duas-colunas">
-        <div class="texto">
+      <div class="container montra">
+        <div class="montra__intro">
           <h2 id="montra-titulo" class="reveal">A montra</h2>
           <div class="orn orn--curto" aria-hidden="true"><span></span></div>
-          <p>Pão, bolos e salgados de fabrico próprio, à vista no balcão. Na montra veem-se bolos de creme e fruta, tartes e biscoitos com cobertura de chocolate.</p>
-
-          <!-- EDITAR: um bloco por tipo de produto. Quando houver preços confirmados pelo cliente,
-               acrescentar uma linha <p class="item__preco"> dentro do bloco. -->
-          <div class="itens">
-            <div class="item">
-              <h3>Pão e padaria</h3>
-              <p>Seleção de pão, de fabrico próprio.</p>
-            </div>
-            <div class="item">
-              <h3>Pastelaria</h3>
-              <p>Bolos, tartes e doces de montra, e salgados.</p>
-            </div>
-            <div class="item">
-              <h3>Pequeno-almoço</h3>
-              <p>Café e pastelaria, todos os dias a partir das&nbsp;7h.</p>
-            </div>
-            <div class="item">
-              <h3>Almoço</h3>
-              <p>Ementa de restaurante, no local. <a href="menu.html">Ver o menu e os preços</a>.</p>
-            </div>
-          </div>
+          <p>Pão, bolos e salgados de fabrico próprio, à vista no balcão.</p>
         </div>
 
         <div class="fotos-par">
           <figure class="foto foto--grande">
-            <img src="assets/vitrina.jpg" alt="Montra do Arabesco com bolos decorados, tartes e biscoitos com cobertura de chocolate" width="510" height="510">
+            <img src="assets/vitrina.jpg" alt="Montra do Arabesco com bolos decorados, tartes e biscoitos com cobertura de chocolate" width="510" height="510" loading="lazy" decoding="async">
           </figure>
           <figure class="foto foto--alta">
-            <img src="assets/cafe-bolo.jpg" alt="Café servido numa chávena branca com um bolo de massa folhada, chantilly e manga" width="287" height="510">
+            <img src="assets/cafe-bolo.jpg" alt="Café servido numa chávena branca com um bolo de massa folhada, chantilly e manga" width="287" height="510" loading="lazy" decoding="async">
           </figure>
         </div>
+
+        <!-- EDITAR: uma linha (<div><dt>...</dt><dd>...</dd></div>) por tipo de produto.
+             Quando houver preços confirmados pelo cliente, acrescentar no <dd>. -->
+        <dl class="linhas">
+          <div>
+            <dt>Pão</dt>
+            <dd>Seleção de pão, de fabrico próprio.</dd>
+          </div>
+          <div>
+            <dt>Bolos e tartes</dt>
+            <dd>Bolos de creme e fruta, tartes e biscoitos com cobertura de chocolate.</dd>
+          </div>
+          <div>
+            <dt>Salgados</dt>
+            <dd>De fabrico próprio, à vista no balcão.</dd>
+          </div>
+          <div>
+            <dt>Pequeno-almoço</dt>
+            <dd>Café e pastelaria, todos os dias a partir das&nbsp;7h.</dd>
+          </div>
+          <div>
+            <dt>Almoço</dt>
+            <dd>Pratos do dia, no local. <a href="menu.html">Ver a ementa e os preços</a>.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -161,13 +179,13 @@
     <section class="secao secao--tom" id="casa" aria-labelledby="casa-titulo">
       <div class="container duas-colunas duas-colunas--inversa">
         <figure class="foto foto--ampla">
-          <img src="assets/interior.jpg" alt="Interior do Arabesco com mesas de madeira escura, candeeiros de luz quente e balcão de vidro com bolos" width="680" height="510">
+          <img src="assets/interior.jpg" alt="Interior do Arabesco com mesas de madeira escura, candeeiros de luz quente e balcão de vidro com bolos" width="680" height="510" loading="lazy" decoding="async">
         </figure>
         <div class="texto">
           <h2 id="casa-titulo" class="reveal">A casa</h2>
           <div class="orn orn--curto" aria-hidden="true"><span></span></div>
           <p>O Arabesco é uma padaria, pastelaria e restaurante de bairro, na Estrada de Benfica. A sala é ampla, com balcão de vidro, mesas de madeira escura e luz quente, e à porta há esplanada.</p>
-          <p>Abrimos às&nbsp;7h e fechamos às&nbsp;20h, todos os dias. Serve-se pequeno-almoço, almoço com ementa de restaurante e café ao balcão, com pão, bolos e salgados de fabrico próprio.</p>
+          <p>Serve-se pequeno-almoço, almoço com ementa de restaurante e café ao balcão, com pão, bolos e salgados de fabrico próprio.</p>
           <!-- EDITAR: quando o cliente confirmar o ano de fundação (1968, como diz o logótipo) e quem gere a casa,
                acrescentar aqui uma frase com esse facto. -->
         </div>
@@ -176,13 +194,14 @@
 
     <!-- ===================== 5. OPINIÕES =====================
          Avaliações reais do Google Maps, copiadas tal como estão (consulta de 2026-10-16, com autor identificado).
+         As traduzidas pelo Google estão assinaladas no nome do autor.
          EDITAR: não alterar o texto das avaliações. Para acrescentar uma, copiar o texto exato, o primeiro nome e a inicial. -->
     <section class="secao secao--escura" id="opinioes" aria-labelledby="opinioes-titulo">
       <div class="container">
         <div class="opinioes__cabeca">
           <div>
             <h2 id="opinioes-titulo" class="reveal">Opiniões</h2>
-            <p class="opinioes__nota">4,2 em 621 avaliações no Google&nbsp;Maps</p>
+            <p class="opinioes__nota"><span class="opinioes__num">4,2</span> <span>em 621 avaliações no Google&nbsp;Maps</span></p>
           </div>
           <p class="opinioes__ligacao"><a class="ligacao-seta" href="https://www.google.com/maps/place/?q=place_id:ChIJz1XhhiUzGQ0R6vqVoAN8mZs" rel="noopener">Ver todas no Google Maps</a></p>
         </div>
@@ -211,7 +230,7 @@
       <div class="container">
         <div class="duas-colunas">
           <figure class="foto foto--ampla">
-            <img src="assets/fachada.jpg" alt="Fachada do Arabesco na Estrada de Benfica, com o letreiro Restaurante Padaria e esplanada com guarda-sóis" width="680" height="445">
+            <img src="assets/fachada.jpg" alt="Fachada do Arabesco na Estrada de Benfica, com o letreiro Restaurante Padaria e esplanada com guarda-sóis" width="680" height="445" loading="lazy" decoding="async">
           </figure>
           <div class="texto">
             <h2 id="chegar-titulo" class="reveal">Como chegar</h2>
@@ -226,16 +245,26 @@
               <div><dt>Segunda a domingo</dt><dd>07:00 às 20:00</dd></div>
             </dl>
 
-            <p class="nota">A cerca de 150 m da paragem Mercado S. Domingos de Benfica. Entrada acessível.</p>
+            <!-- EDITAR: quando o cliente confirmar como se paga (dinheiro, Multibanco, cartão), acrescentar aqui
+                 uma linha. Hoje as avaliações dizem coisas diferentes, por isso não está no site.
+            <p class="nota">Pagamento: [CONFIRMAR].</p>
+            -->
+
             <p><a class="ligacao-seta" href="https://www.google.com/maps/place/?q=place_id:ChIJz1XhhiUzGQ0R6vqVoAN8mZs" rel="noopener">Abrir no Google Maps</a></p>
           </div>
         </div>
 
-        <!-- O mapa só carrega depois de clicar (privacidade). Ver script.js.
+        <!-- Painel do mapa. O mapa só carrega depois de clicar (privacidade). Ver script.js.
              EDITAR: se a morada mudar, mudar o texto em data-mapa. -->
         <div class="mapa" id="mapa" data-mapa="https://www.google.com/maps?q=Arabesco,+Estrada+de+Benfica+294-B,+1500-098+Lisboa&amp;output=embed">
-          <button class="btn btn--contorno" type="button" id="mapa-botao">Mostrar mapa</button>
-          <p class="nota">Ao mostrar o mapa, a Google recebe dados da sua visita. <a href="privacidade.html">Saber mais</a>.</p>
+          <div class="mapa__info">
+            <p class="rotulo">Transportes e acesso</p>
+            <p class="nota">A cerca de 150 m da paragem Mercado S. Domingos de Benfica. Entrada acessível.</p>
+          </div>
+          <div class="mapa__acao">
+            <button class="btn btn--contorno" type="button" id="mapa-botao">Mostrar mapa</button>
+            <p class="nota">Ao mostrar o mapa, a Google recebe dados da sua visita. <a href="privacidade.html">Saber mais</a>.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -263,10 +292,10 @@
   <footer class="rodape">
     <div class="container rodape__grelha">
       <div>
-        <img class="rodape__logo" src="assets/logo-fundo-escuro.svg" alt="Arabesco" width="1190" height="1483">
+        <img class="rodape__logo" src="assets/logo-fundo-escuro.svg" alt="Arabesco" width="1190" height="1483" loading="lazy" decoding="async">
       </div>
       <ul class="rodape__links">
-        <li><a href="menu.html">Menu</a></li>
+        <li><a href="menu.html">Ementa</a></li>
         <li><a href="termos.html">Termos e condições</a></li>
         <li><a href="privacidade.html">Política de privacidade</a></li>
         <!-- Confirmar com o cliente se a atividade está obrigada ao Livro de Reclamações Eletrónico. -->
@@ -278,13 +307,13 @@
     <p class="container rodape__copy">© 2026 Arabesco. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Botão flutuante, sempre visível. Liga por telefone porque não há WhatsApp conhecido.
+  <!-- Barra fixa no fundo do ecrã, só em telemóvel. Liga por telefone porque não há WhatsApp conhecido.
        EDITAR: se houver telemóvel com WhatsApp, trocar o href por https://wa.me/351XXXXXXXXX e o texto por "WhatsApp". -->
-  <a class="ligar-flutuante" href="tel:+351217783344" aria-label="Ligar para o Arabesco">
+  <a class="ligar-flutuante" href="tel:+351217783344" aria-label="Ligar para o Arabesco, 217 783 344">
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
       <path d="M5 4h3.5l1.7 4.2-2.1 1.3a11 11 0 0 0 5.4 5.4l1.3-2.1L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
     </svg>
-    <span>Ligar</span>
+    <span>Ligar 217 783 344</span>
   </a>
 
   <script src="script.js" defer></script>
